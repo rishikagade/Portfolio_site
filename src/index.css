@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F7F4EF; /* Cream */
+  color: #280B0F; /* Italian Roast */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: #280B0F; /* Italian Roast */
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 1.375rem;
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+p, li, label, input, textarea, span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: inherit;
+}
+
+a,
+button {
+  outline-offset: 4px;
+}
+
+.text-secondary {
+  color: #361319; /* Tamarind */
+}
+
+.text-muted {
+  color: #7B694E; /* Boho */
+}
+
+.text-accent {
+  color: #6D3A3C; /* Rubine */
+}
+
+.bg-section {
+  background-color: #FFFFFF; /* White for sections */
+}
+
+.bg-card {
+  background-color: #FFFFFF; /* White for cards */
+  border: 1px solid rgba(198, 179, 154, 0.45);
+}
+
+.skill-tag {
+  display: inline-block;
+  background-color: rgba(247, 244, 239, 0.9);
+  color: #280B0F; /* Italian Roast */
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid rgba(198, 179, 154, 0.65);
+}
+
+.section-title {
+  margin-bottom: 2rem;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #6D3A3C; /* Rubine */
+  margin-top: 0.9rem;
+}
+
+.nav-link {
+  color: #280B0F; /* Italian Roast */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+}
+
+.nav-link:hover {
+  color: #6D3A3C; /* Rubine */
+  background-color: rgba(109, 58, 60, 0.08);
+}
+
+.active-link {
+  color: #6D3A3C; /* Rubine */
+  font-weight: 600;
+  background-color: rgba(109, 58, 60, 0.1);
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+}
+
+.section-shell {
+  padding: 5.5rem 0;
+}
+
+.container-shell {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.focus-card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(198, 179, 154, 0.45);
+  box-shadow: 0 18px 45px rgba(40, 11, 15, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 55px rgba(40, 11, 15, 0.1);
+  border-color: rgba(109, 58, 60, 0.32);
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .container-shell {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-shell {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-shell {
+    padding: 4rem 0;
+  }
+}
