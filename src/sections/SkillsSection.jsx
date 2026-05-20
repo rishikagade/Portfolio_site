@@ -40,7 +40,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="section-shell">
+    <section id="skills" className="section-shell bg-white">
       <div className="container-shell">
         <SectionTitle
           eyebrow="Skills"
