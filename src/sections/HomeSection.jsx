@@ -24,7 +24,7 @@ const HomeSection = () => {
             M.S. in Business Administration graduate of Virginia Tech's Pamplin College of Business with client-facing experience in financial services and consumer insights, known for connecting technical analysis to executive-ready storytelling.
           </p>
           <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-muted">
-            Available May 2026 · Open to full-time roles · On-site/ Hybrid / Remote
+            Available now for full-time roles · On-site / Hybrid / Remote
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <PrimaryButton variant="primary" href="#projects">
