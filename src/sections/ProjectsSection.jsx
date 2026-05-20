@@ -17,7 +17,7 @@ const ProjectsSection = () => {
         .slice(0, homepageProjectLimit);
 
   return (
-    <section id="projects" className="section-shell bg-white">
+    <section id="projects" className="section-shell bg-cream">
       <div className="container-shell">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionTitle

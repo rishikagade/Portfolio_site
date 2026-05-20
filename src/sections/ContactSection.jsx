@@ -4,7 +4,7 @@ import { EMAIL, GITHUB_URL, LINKEDIN_URL, PHONE, RESUME_URL } from '../data/site
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="section-shell">
+    <section id="contact" className="section-shell bg-white">
       <div className="container-shell">
         <div className="focus-card rounded-lg p-6 sm:p-8 lg:p-10">
           <SectionTitle
