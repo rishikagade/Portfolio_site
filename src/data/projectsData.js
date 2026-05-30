@@ -22,6 +22,22 @@ export const projectsData = [
     links: [],
   },
   {
+    id: 11,
+    featured: true,
+    category: 'Business Analytics',
+    title: 'DataTrust-AI Automated Data Quality Auditor',
+    problem: 'Helping analysts catch data quality issues before datasets reach dashboards, models, or executive reporting.',
+    tools: ['Python', 'FastAPI', 'React', 'TypeScript', 'Tailwind CSS', 'pandas', 'Groq', 'Recharts', 'Zustand', 'WeasyPrint'],
+    methods: ['CSV profiling', '11-rule validation engine', 'Weighted quality scoring', 'Privacy-safe AI summaries', 'Conversational audit agent'],
+    outcome: 'Built a full-stack audit workflow that scores dataset quality from 0-100, explains severity-ranked findings in business language, and keeps raw CSV rows out of AI prompts.',
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/rishikagade/DataTrust-AI',
+      },
+    ],
+  },
+  {
     id: 9,
     featured: true,
     category: 'Machine Learning',
