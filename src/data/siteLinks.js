@@ -1,4 +1,4 @@
-import resumeUrl from '../../Resume/Resume_Data_Business_Analyst.pdf';
+import resumeUrl from '../../Resume/Resume_Rishika_Gade.pdf';
 
 export const EMAIL = 'rishikagade01@gmail.com';
 export const PHONE = '+1 (636) 368-8679';
