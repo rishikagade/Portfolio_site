@@ -3,6 +3,15 @@
 Running log of what changed and why. Newest entries at the top. Each entry dated.
 See [OVERVIEW.md](./OVERVIEW.md) for the durable strategy and rationale.
 
+## 2026-07-11 — Hero: replaced metric tiles with "What I do" focus areas
+
+- Owner felt a KPI number row (37K records / 0.894 AUC / Marriott mention) read as
+  vanity stats on a personal portfolio (the metrics already live on the project
+  cards). Replaced the `heroStats` tiles — and the now-redundant "Core toolkit" chip
+  row — with four capability areas (Analytics & Modeling, BI & Dashboards, Data
+  Engineering, AI & Automation), mirroring the Skills section. Credentials block
+  kept. `HomeSection.jsx` only.
+
 ## 2026-07-11 — Palette changed to "Violet + Amber"
 
 - Owner disliked the blue. Replaced the Cool Blue + Cyan values in `src/index.css`

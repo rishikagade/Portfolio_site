@@ -1,13 +1,12 @@
 import PrimaryButton from '../components/PrimaryButton';
 import { RESUME_URL } from '../data/siteLinks';
 
-const heroStats = [
-  { value: '37K+', label: 'records analyzed in capstone' },
-  { value: '0.894', label: 'best model validation AUC' },
-  { value: 'Honorary Mention', label: "Marriott's CodeFest" },
+const focusAreas = [
+  { title: 'Analytics & Modeling', detail: 'ML, forecasting, and risk models' },
+  { title: 'BI & Dashboards', detail: 'Power BI, Tableau, and data storytelling' },
+  { title: 'Data Engineering', detail: 'SQL, ETL, REST APIs, MongoDB' },
+  { title: 'AI & Automation', detail: 'Applied AI and workflow automation' },
 ];
-
-const focusAreas = ['Python', 'SQL', 'Tableau', 'Power BI', 'Machine Learning'];
 
 const HomeSection = () => {
   return (
@@ -33,7 +32,7 @@ const HomeSection = () => {
           </div>
         </div>
 
-        <aside className="reveal surface-card rounded-2xl p-6 sm:p-8" aria-label="Credentials and highlights">
+        <aside className="reveal surface-card rounded-2xl p-6 sm:p-8" aria-label="Credentials and focus areas">
           <p className="eyebrow">Credentials</p>
           <div className="mt-4 border-b border-line pb-5">
             <p className="text-lg font-bold text-ink">M.S. in Business Administration</p>
@@ -41,22 +40,19 @@ const HomeSection = () => {
             <p className="mt-1 text-sm font-medium text-muted">3.9 GPA · May 2026</p>
           </div>
 
-          <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="stat-value text-xl leading-tight">{stat.value}</p>
-                <p className="mt-1 text-xs leading-snug text-muted">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 border-t border-line pt-5">
-            <p className="eyebrow mb-3">Core toolkit</p>
-            <div className="flex flex-wrap gap-2">
+          <div className="mt-5">
+            <p className="eyebrow mb-4">What I do</p>
+            <ul className="grid gap-4">
               {focusAreas.map((area) => (
-                <span key={area} className="chip chip-core">{area}</span>
+                <li key={area.title} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" aria-hidden="true" />
+                  <span>
+                    <span className="block font-semibold text-ink">{area.title}</span>
+                    <span className="mt-0.5 block text-sm leading-snug text-muted">{area.detail}</span>
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </aside>
       </div>
