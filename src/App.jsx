@@ -9,9 +9,12 @@ import ProjectsSection from './sections/ProjectsSection';
 import ContactSection from './sections/ContactSection';
 import AllProjectsPage from './pages/AllProjectsPage';
 import { isProjectsRoute } from './utils/sitePaths';
+import useScrollReveal from './hooks/useScrollReveal';
 
 const App = () => {
   const [isAllProjectsPage, setIsAllProjectsPage] = useState(isProjectsRoute);
+
+  useScrollReveal();
 
   useEffect(() => {
     const handleLocationChange = () => {
@@ -32,7 +35,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream text-italian-roast">
+    <div className="min-h-screen bg-bg text-ink">
       <Header />
       <main>
         <HomeSection />

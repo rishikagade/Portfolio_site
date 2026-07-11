@@ -1,16 +1,11 @@
 const SectionTitle = ({ title, eyebrow, description, align = 'left' }) => {
   return (
-    <div className={`section-title ${align === 'center' ? 'text-center mx-auto' : ''} max-w-3xl`}>
-      {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase text-rubine">
-          {eyebrow}
-        </p>
-      )}
-      <h2 className="font-bold text-italian-roast">{title}</h2>
+    <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl`}>
+      {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+      <h2 className="text-ink">{title}</h2>
+      <div className={`section-divider mt-5 ${align === 'center' ? 'mx-auto' : ''}`} />
       {description && (
-        <p className="mt-4 text-lg leading-relaxed text-secondary">
-          {description}
-        </p>
+        <p className="mt-5 text-lg leading-relaxed text-muted">{description}</p>
       )}
     </div>
   );

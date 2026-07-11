@@ -1,10 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+/* ------------------------------------------------------------------ */
+/* Design tokens — semantic color system, light + dark                 */
+/* Values are "R G B" triplets consumed by Tailwind via                */
+/* rgb(var(--token) / <alpha-value>). See tailwind.config.js.          */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: 250 249 252;         /* violet-tinted off-white */
+  --surface: 255 255 255;    /* white   */
+  --surface-2: 241 238 247;  /* violet-tinted slate */
+  --line: 233 228 240;       /* violet-tinted border */
+  --ink: 23 18 31;           /* deep plum ink */
+  --muted: 87 75 99;         /* muted plum-gray */
+  --subtle: 124 114 136;     /* subtle plum-gray */
+  --brand: 124 58 237;       /* violet-600 */
+  --brand-strong: 109 40 217; /* violet-700 */
+  --brand-contrast: 255 255 255;
+  --brand-soft: 243 238 253; /* violet-50 */
+  --accent: 217 119 6;       /* amber-600 */
+  --shadow: 23 18 31;        /* plum ink shadow tint */
+}
+
+:root.dark {
+  --bg: 12 10 20;            /* near-black plum */
+  --surface: 23 19 37;       /* deep plum   */
+  --surface-2: 36 28 56;     /* elevated plum */
+  --line: 50 42 71;          /* plum border */
+  --ink: 243 239 250;        /* soft white */
+  --muted: 169 159 188;      /* muted plum-gray */
+  --subtle: 126 115 143;     /* subtle plum-gray */
+  --brand: 167 139 250;      /* violet-400 */
+  --brand-strong: 196 181 253; /* violet-300 */
+  --brand-contrast: 20 15 31;  /* dark text on light-violet fills */
+  --brand-soft: 34 26 56;      /* violet-tinted surface */
+  --accent: 251 191 36;        /* amber-400 */
+  --shadow: 0 0 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -17,37 +56,39 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F7F4EF; /* Cream */
-  color: #280B0F; /* Italian Roast */
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-weight: 700;
-  color: #280B0F; /* Italian Roast */
+  color: rgb(var(--ink));
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 6vw, 4.75rem);
-  line-height: 0.98;
-  letter-spacing: 0;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.02;
+  font-weight: 800;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
   line-height: 1.1;
 }
 
 h3 {
-  font-size: 1.375rem;
-  line-height: 1.25;
+  font-size: 1.3rem;
+  line-height: 1.3;
 }
 
 h4 {
-  font-size: 1.125rem;
+  font-size: 1.075rem;
 }
 
 p, li, label, input, textarea, span {
@@ -56,78 +97,19 @@ p, li, label, input, textarea, span {
   color: inherit;
 }
 
-a,
-button {
-  outline-offset: 4px;
+a, button {
+  outline-offset: 3px;
 }
 
-.text-secondary {
-  color: #361319; /* Tamarind */
+*:focus-visible {
+  outline: 2px solid rgb(var(--brand));
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-.text-muted {
-  color: #7B694E; /* Boho */
-}
-
-.text-accent {
-  color: #6D3A3C; /* Rubine */
-}
-
-.bg-section {
-  background-color: #FFFFFF; /* White for sections */
-}
-
-.bg-card {
-  background-color: #FFFFFF; /* White for cards */
-  border: 1px solid rgba(198, 179, 154, 0.45);
-}
-
-.skill-tag {
-  display: inline-block;
-  background-color: rgba(247, 244, 239, 0.9);
-  color: #280B0F; /* Italian Roast */
-  padding: 0.4rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border: 1px solid rgba(198, 179, 154, 0.65);
-}
-
-.section-title {
-  margin-bottom: 2rem;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: #6D3A3C; /* Rubine */
-  margin-top: 0.9rem;
-}
-
-.nav-link {
-  color: #280B0F; /* Italian Roast */
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease, background-color 0.2s ease;
-  padding: 0.55rem 0.75rem;
-  border-radius: 999px;
-}
-
-.nav-link:hover {
-  color: #6D3A3C; /* Rubine */
-  background-color: rgba(109, 58, 60, 0.08);
-}
-
-.active-link {
-  color: #6D3A3C; /* Rubine */
-  font-weight: 600;
-  background-color: rgba(109, 58, 60, 0.1);
-  padding: 0.55rem 0.75rem;
-  border-radius: 999px;
-}
-
+/* ------------------------------------------------------------------ */
+/* Layout helpers                                                      */
+/* ------------------------------------------------------------------ */
 .section-shell {
   padding: 5.5rem 0;
 }
@@ -135,37 +117,141 @@ button {
 .container-shell {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
-.focus-card {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(198, 179, 154, 0.45);
-  box-shadow: 0 18px 45px rgba(40, 11, 15, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.focus-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 55px rgba(40, 11, 15, 0.1);
-  border-color: rgba(109, 58, 60, 0.32);
-}
-
-/* Responsive adjustments */
 @media (min-width: 640px) {
-  .container-shell {
-    padding: 0 1.5rem;
-  }
+  .container-shell { padding: 0 1.75rem; }
 }
 
 @media (min-width: 1024px) {
-  .container-shell {
-    padding: 0 2rem;
-  }
+  .container-shell { padding: 0 2.5rem; }
 }
 
 @media (max-width: 768px) {
-  .section-shell {
-    padding: 4rem 0;
+  .section-shell { padding: 4rem 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--brand));
+}
+
+.surface-card {
+  background-color: rgb(var(--surface));
+  border: 1px solid rgb(var(--line));
+  box-shadow: 0 1px 2px rgb(var(--shadow) / 0.05), 0 12px 32px rgb(var(--shadow) / 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.surface-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 2px 4px rgb(var(--shadow) / 0.08), 0 22px 50px rgb(var(--shadow) / 0.14);
+  border-color: rgb(var(--brand) / 0.45);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: rgb(var(--surface-2));
+  color: rgb(var(--muted));
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgb(var(--line));
+}
+
+.chip-core {
+  background-color: rgb(var(--brand-soft));
+  color: rgb(var(--brand-strong));
+  border-color: rgb(var(--brand) / 0.35);
+  font-weight: 600;
+}
+
+.role-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background-color: rgb(var(--brand-soft));
+  color: rgb(var(--brand-strong));
+  border: 1px solid rgb(var(--brand) / 0.28);
+}
+
+.stat-value {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 800;
+  color: rgb(var(--accent));
+  letter-spacing: -0.02em;
+}
+
+.nav-link {
+  color: rgb(var(--muted));
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+}
+
+.nav-link:hover {
+  color: rgb(var(--ink));
+  background-color: rgb(var(--surface-2));
+}
+
+.active-link {
+  color: rgb(var(--brand));
+  font-weight: 600;
+  background-color: rgb(var(--brand-soft));
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.section-divider {
+  height: 3px;
+  width: 56px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgb(var(--brand)), rgb(var(--accent)));
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll-reveal motion (progressive enhancement)                      */
+/* Elements are only hidden once JS marks the root as reveal-ready,     */
+/* so content still shows if JS fails.                                  */
+/* ------------------------------------------------------------------ */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-ready .reveal,
+  .surface-card,
+  body {
+    transition: none !important;
+  }
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

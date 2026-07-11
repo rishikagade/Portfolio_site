@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCurrentSitePath, isProjectsRoute, sitePath } from '../utils/sitePaths';
+import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -81,11 +82,11 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-camel-coat/30 bg-cream/90 shadow-sm backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-bg/85 shadow-sm backdrop-blur">
       <nav className="container-shell" aria-label="Primary navigation">
         <div className="flex h-16 items-center justify-between">
-          <a href={isHomePage ? '#home' : sitePath('/#home')} onClick={() => handleNavClick('home')} className="flex-shrink-0 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-rubine">
-            <span className="font-heading text-xl font-bold text-italian-roast">
+          <a href={isHomePage ? '#home' : sitePath('/#home')} onClick={() => handleNavClick('home')} className="flex-shrink-0 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand">
+            <span className="font-heading text-xl font-bold text-ink">
               Rishika Gade
             </span>
           </a>
@@ -100,22 +101,26 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
+            <div className="ml-2">
+              <ThemeToggle />
+            </div>
           </div>
-          <div className="md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
             <button
               type="button"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label="Toggle navigation menu"
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="rounded-md border border-camel-coat/50 p-2 text-italian-roast transition hover:border-rubine hover:text-rubine focus-visible:outline focus-visible:outline-2 focus-visible:outline-rubine"
+              className="rounded-md border border-line p-2 text-ink transition hover:border-brand/50 hover:text-brand focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand"
             >
               <span aria-hidden="true">{isMenuOpen ? 'Close' : 'Menu'}</span>
             </button>
           </div>
         </div>
         {isMenuOpen && (
-          <div id="mobile-menu" className="grid gap-2 border-t border-camel-coat/30 py-4 md:hidden">
+          <div id="mobile-menu" className="grid gap-2 border-t border-line py-4 md:hidden">
             {navItems.map((item) => (
               <a
                 key={item.id}
